@@ -10,20 +10,5 @@ import {
 })
 export class CounterComponent implements OnInit{
 
-  counter: number = 0;
-
-  ngOnInit(): void {
-  }
-
-  onIncrement(): void {
-    this.counter++;
-  }
-
-  onDecrement(): void {
-    this.counter--;
-  }
-
-  onReset(): void {
-    this.counter = 0;
-  }
+  ngOnInit(): void {}
 }
