@@ -9,16 +9,20 @@ import { StoreModule } from "@ngrx/store";
 import { counterReducer } from "./counter/store/counter.reducer";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "./environments/environments";
+import { CounterCustomComponent } from './counter/counter-custom/counter-custom.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
     CounterButtonComponent,
-    CounterValueComponent
+    CounterValueComponent,
+    CounterCustomComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     StoreModule.forRoot({counter: counterReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 50, logOnly: environment.production })
   ],
