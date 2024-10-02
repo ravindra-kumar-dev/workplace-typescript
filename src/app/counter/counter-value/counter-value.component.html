@@ -1,5 +1,5 @@
 <div class="row">
   <div class="col-md-6 col-xs-6 col-centered">
-     <div>{{"Value is: "}} {{ counter }}</div>
+     <div>{{"Value is: "}} {{ (counter$ | async)?.counter }}</div>
   </div>
 </div>
