@@ -15,22 +15,22 @@ import { CounterModel } from "../ model/counter.model";
   templateUrl: './counter-button.component.html',
   styleUrls: ['./counter-button.component.css']
 })
-export class CounterButtonComponent implements OnInit{
+export class CounterButtonComponent implements OnInit {
 
-  constructor(private store: Store<{counter: CounterModel}> ) {}
+  constructor(private store$: Store<{counter: CounterModel}> ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   onIncrement(): void{
-    this.store.dispatch(increment());
+    this.store$.dispatch(increment());
   }
 
   onDecrement(): void{
-      this.store.dispatch(decrement());
+      this.store$.dispatch(decrement());
   }
 
   onReset(): void{
-      this.store.dispatch(reset());
+      this.store$.dispatch(reset());
   }
 }

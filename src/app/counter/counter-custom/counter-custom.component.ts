@@ -16,6 +16,7 @@ import { customIncrement } from "../store/counter.action";
 export class CounterCustomComponent implements OnInit {
 
   customValue: number = 0;
+
   constructor(private store$: Store< {counter: CounterModel}>) {
   }
   ngOnInit() {}

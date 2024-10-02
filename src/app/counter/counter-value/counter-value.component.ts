@@ -3,7 +3,10 @@ import {
   OnInit
 } from '@angular/core';
 import { Store } from "@ngrx/store";
-import { CounterModel } from "../ model/counter.model";
+import {
+  COUNTER_STORE,
+  CounterModel
+} from "../ model/counter.model";
 import { Observable } from "rxjs";
 
 @Component({
@@ -15,11 +18,11 @@ export class CounterValueComponent implements OnInit {
 
   counter$: Observable<CounterModel> | undefined;
 
-  constructor(private store: Store<{counter: CounterModel}>) {}
+  constructor(private store$: Store<{counter: CounterModel}>) {}
 
   ngOnInit(): void {
 
-    this.counter$ = this.store.select("counter");
+    this.counter$ = this.store$.select(COUNTER_STORE);
   }
 
 }
