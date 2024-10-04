@@ -5,11 +5,9 @@ import {
 } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { Subscription } from "rxjs";
-import {
-    COUNTER_STORE,
-    CounterModel
-} from "../ model/counter.model";
+import { CounterModel } from "../ model/counter.model";
 import { changeChannelName } from "../store/counter.action";
+import { getChannelName } from "../store/counter.selector";
 
 @Component({
   selector: 'app-display-channel',
@@ -24,9 +22,8 @@ export class DisplayChannelComponent implements OnInit, OnDestroy {
     constructor(private store$: Store<{counter: CounterModel}>) {}
 
   ngOnInit(): void {
-   this.subscription = this.store$.select(COUNTER_STORE).subscribe( data => {
-     console.log("ChannelName change is called");
-     this.channelName = data.channelName;
+   this.subscription = this.store$.select(getChannelName).subscribe( data => {
+     this.channelName = data;
    })
   }
 

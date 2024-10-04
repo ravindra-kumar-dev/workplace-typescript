@@ -3,10 +3,8 @@ import {
   OnInit
 } from '@angular/core';
 import { Store } from "@ngrx/store";
-import {
-  COUNTER_STORE,
-  CounterModel
-} from "../ model/counter.model";
+import { CounterModel } from "../ model/counter.model";
+import { getCounter } from "../store/counter.selector";
 
 @Component({
   selector: 'app-counter-value',
@@ -21,9 +19,8 @@ export class CounterValueComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.store$.select(COUNTER_STORE).subscribe(data => {
-      console.log("Counter value change is called");
-      this.counterVal = data.counter;
+    this.store$.select(getCounter).subscribe(data => {
+      this.counterVal = data;
     });
   }
 
