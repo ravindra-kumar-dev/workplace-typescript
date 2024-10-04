@@ -7,7 +7,6 @@ import {
   COUNTER_STORE,
   CounterModel
 } from "../ model/counter.model";
-import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-counter-value',
@@ -16,13 +15,16 @@ import { Observable } from "rxjs";
 })
 export class CounterValueComponent implements OnInit {
 
-  counter$: Observable<CounterModel> | undefined;
+  counterVal: number | undefined;
 
   constructor(private store$: Store<{counter: CounterModel}>) {}
 
   ngOnInit(): void {
 
-    this.counter$ = this.store$.select(COUNTER_STORE);
+    this.store$.select(COUNTER_STORE).subscribe(data => {
+      console.log("Counter value change is called");
+      this.counterVal = data.counter;
+    });
   }
 
 }

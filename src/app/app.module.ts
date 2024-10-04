@@ -11,6 +11,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "./environments/environments";
 import { CounterCustomComponent } from './counter/counter-custom/counter-custom.component';
 import { FormsModule } from "@angular/forms";
+import { DisplayChannelComponent } from './counter/display-channel/display-channel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from "@angular/forms";
     CounterComponent,
     CounterButtonComponent,
     CounterValueComponent,
-    CounterCustomComponent
+    CounterCustomComponent,
+    DisplayChannelComponent
   ],
   imports: [
     BrowserModule,
