@@ -19,7 +19,7 @@ export class DisplayChannelComponent implements OnInit, OnDestroy {
   channelName: string | undefined;
   subscription: Subscription | undefined;
 
-    constructor(private store$: Store<{counter: CounterModel}>) {}
+  constructor(private store$: Store<{counter: CounterModel}>) {}
 
   ngOnInit(): void {
    this.subscription = this.store$.select(getChannelName).subscribe( data => {
