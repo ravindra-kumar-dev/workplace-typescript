@@ -5,8 +5,8 @@ import {
 import {
   Store
 } from "@ngrx/store";
-import { CounterModel } from "../ model/counter.model";
 import { customIncrement } from "../store/counter.action";
+import { AppState } from "../../store/app-state.model";
 
 @Component({
   selector: 'app-counter-custom',
@@ -17,7 +17,7 @@ export class CounterCustomComponent implements OnInit {
 
   customValue: number = 0;
 
-  constructor(private store$: Store<{counter: CounterModel}>) {
+  constructor(private store$: Store<AppState>) {
   }
   ngOnInit() {}
 

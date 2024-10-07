@@ -8,7 +8,7 @@ import {
     increment,
     reset
 } from "../store/counter.action";
-import { CounterModel } from "../ model/counter.model";
+import { AppState } from "../../store/app-state.model";
 
 @Component({
   selector: 'app-counter-button',
@@ -17,7 +17,7 @@ import { CounterModel } from "../ model/counter.model";
 })
 export class CounterButtonComponent implements OnInit {
 
-  constructor(private store$: Store<{counter: CounterModel}> ) {}
+  constructor(private store$: Store<AppState> ) {}
 
   ngOnInit(): void {
   }

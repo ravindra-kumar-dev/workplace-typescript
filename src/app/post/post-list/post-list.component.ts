@@ -19,10 +19,10 @@ export class PostListComponent implements OnInit{
 
   postList$: Observable<PostList> | undefined;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store$: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.postList$ = this.store.select(getPosts);
+    this.postList$ = this.store$.select(getPosts);
   }
 
 }

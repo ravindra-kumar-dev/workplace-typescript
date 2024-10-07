@@ -5,9 +5,9 @@ import {
 } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { Subscription } from "rxjs";
-import { CounterModel } from "../ model/counter.model";
 import { changeChannelName } from "../store/counter.action";
 import { getChannelName } from "../store/counter.selector";
+import { AppState } from "../../store/app-state.model";
 
 @Component({
   selector: 'app-display-channel',
@@ -19,7 +19,7 @@ export class DisplayChannelComponent implements OnInit, OnDestroy {
   channelName: string | undefined;
   subscription: Subscription | undefined;
 
-  constructor(private store$: Store<{counter: CounterModel}>) {}
+  constructor(private store$: Store<AppState>) {}
 
   ngOnInit(): void {
    this.subscription = this.store$.select(getChannelName).subscribe( data => {
