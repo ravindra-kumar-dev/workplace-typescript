@@ -1,15 +1,15 @@
 import { CounterModel } from "../counter/ model/counter.model";
-import { PostList }     from "../post/model/post-list.model";
 import { counterReducer } from "../counter/store/counter.reducer"
 import { postListReducer } from "../post/store/post.reducer";
+import { Post } from "../post/model/post.model";
 
 export interface AppState {
   counter: CounterModel;
-  postList: PostList;
+  posts: Post[];
 }
 
 
 export const appReducer = {
   counter: counterReducer,
-  postList : postListReducer
+  posts : postListReducer
 };

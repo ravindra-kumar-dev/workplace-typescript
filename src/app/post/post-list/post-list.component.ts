@@ -5,24 +5,32 @@ import {
 import { Store } from "@ngrx/store";
 import { AppState } from "../../store/app-state.model";
 import { getPosts } from "../../store/app-store";
-import { PostList } from "../model/post-list.model";
 import {
   Observable
 } from "rxjs";
+import { Post } from "../model/post.model";
+import { deletePost } from "../store/post.action";
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent implements OnInit{
+export class PostListComponent implements OnInit {
 
-  postList$: Observable<PostList> | undefined;
+  posts$: Observable<Post[]> | undefined;
 
   constructor(private store$: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.postList$ = this.store$.select(getPosts);
+    this.posts$ = this.store$.select(getPosts);
   }
 
+  onDeletePost(id: string): void {
+    if(confirm("Are you sure, you want to delete post!")){
+      this.store$.dispatch(deletePost( {id}));
+    } else {
+      return;
+    }
+  }
 }
