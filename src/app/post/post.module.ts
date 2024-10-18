@@ -13,6 +13,9 @@ import {
   Routes
 } from "@angular/router";
 import { CommonModule }        from "@angular/common";
+import { StoreModule } from "@ngrx/store";
+import { postListReducer } from "./store/post.reducer";
+import { POST_STATE_NAME } from "./store/post.selectors";
 
 const routes: Routes = [
   { path: '', component: PostListComponent,
@@ -32,7 +35,8 @@ const routes: Routes = [
     RouterOutlet,
     RouterLink,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)]
+    RouterModule.forChild(routes),
+    StoreModule.forFeature(POST_STATE_NAME, postListReducer)]
 })
 export class PostModule {
 

@@ -13,6 +13,8 @@ import {
   Routes
 } from "@angular/router";
 import { StoreModule } from "@ngrx/store";
+import { COUNTER_STATE_NAME } from './store/counter.selector'
+import { counterReducer } from "./store/counter.reducer";
 
 const routes: Routes = [
   { path:'',
@@ -32,7 +34,7 @@ const routes: Routes = [
     FormsModule,
     RouterOutlet,
     RouterLink,
-    StoreModule,
+    StoreModule.forFeature(COUNTER_STATE_NAME, counterReducer),
     RouterModule.forChild(routes)
   ],
 })

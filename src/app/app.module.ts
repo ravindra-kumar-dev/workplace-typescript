@@ -11,7 +11,6 @@ import {
   RouterOutlet
 } from "@angular/router";
 import { HeaderComponent } from './shared/components/header/header.component';
-import { appReducer } from "./store/app-state.model";
 
 @NgModule({
   declarations: [
@@ -22,7 +21,7 @@ import { appReducer } from "./store/app-state.model";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({maxAge: 50, logOnly: environment.production}),
     RouterOutlet,
     RouterLink,
