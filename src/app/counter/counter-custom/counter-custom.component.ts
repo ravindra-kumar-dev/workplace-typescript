@@ -17,8 +17,8 @@ export class CounterCustomComponent implements OnInit {
 
   customValue: number = 0;
 
-  constructor(private store$: Store<AppState>) {
-  }
+  constructor(private store$: Store<AppState>) {}
+
   ngOnInit() {}
 
   onCustomCounter(): void {
