@@ -11,6 +11,9 @@ import {
   RouterOutlet
 } from "@angular/router";
 import { HeaderComponent } from './shared/components/header/header.component';
+import { EffectsModule } from "@ngrx/effects";
+import { AuthEffect } from "./auth/store/auth.effect";
+import { HttpClientModule }    from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { HeaderComponent } from './shared/components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([ AuthEffect ]),
     StoreDevtoolsModule.instrument({maxAge: 50, logOnly: environment.production}),
     RouterOutlet,
     RouterLink,

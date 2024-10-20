@@ -7,6 +7,8 @@ import {
   FormGroup,
   Validators
 } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { loginStart } from "../store/auth.actions";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor() {}
+  constructor(private store$: Store) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -27,5 +29,8 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit(){
+    const email: string = this.loginForm.get('email').value;
+    const password: string = this.loginForm.get('password').value;
+    this.store$.dispatch(loginStart({email, password}));
   }
 }
